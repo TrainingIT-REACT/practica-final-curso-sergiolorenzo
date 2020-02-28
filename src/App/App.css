@@ -6,3 +6,39 @@
 .App h1 {
   text-align: center;
 }
+
+nav {
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+  margin-bottom: 1.5em;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 1em;
+}
+
+.active {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cover {
+    max-width:300px;
+}
+
+.audio-center {
+    display: flex;
+    justify-content: center;
+    align-items: center 
+  }
+
+.linkAudio {
+    text-decoration:none;
+}
