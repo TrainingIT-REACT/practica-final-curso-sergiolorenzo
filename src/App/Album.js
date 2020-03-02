@@ -39,9 +39,9 @@ class Album extends React.Component {
       return <p>Hubo un error al obtener los datos :(</p>
     } else {
       return <ul>
-        {songs.map(song => <li key={song.id}>{song.name} 
-          {new Date(null, null, null, null, null, song.seconds).toTimeString().replace(/.*(\d{2}:)(\d{2}:\d{2}).*/, "$2") } 
-          <NavLink to={"/player/" + song.id}><FaPlayCircle /></NavLink></li>)}
+        {songs.map(song => <li key={song.id}>{song.name}&nbsp;
+          {new Date(null, null, null, null, null, song.seconds).toTimeString().replace(/.*(\d{2}:)(\d{2}:\d{2}).*/, "$2") } &nbsp;
+          <NavLink to={"/player/" + song.id} aria-label={"click to play " + song.name}><FaPlayCircle /></NavLink></li>)}
           
        </ul>
      }

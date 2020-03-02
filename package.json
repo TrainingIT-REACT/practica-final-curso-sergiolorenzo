@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
     "react": "^16.12.0",
     "react-audio-player": "^0.11.1",
     "react-dom": "^16.12.0",
@@ -10,10 +12,10 @@
     "react-icons": "^3.9.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "2.1.3",
     "redux": "^4.0.5",
     "redux-promise-middleware": "^6.1.2",
-    "redux-promise-middleware-actions": "^3.0.1"
+    "redux-promise-middleware-actions": "^3.0.1",
+    "style-loader": "^1.1.3"
   },
   "scripts": {
     "start": "npm-run-all --parallel client server",
@@ -21,6 +23,7 @@
     "server": "json-server --watch server/data.json --static server/static --port 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:integration": "jest -c integration/jest.config.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -33,11 +36,28 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.8.0",
-    "jest-enzyme": "^7.0.1",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "html-webpack-plugin": "^3.2.0",
+    "jest-enzyme": "^7.1.2",
+    "jest-puppeteer": "^4.4.0",
     "json-server": "^0.14.2",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "puppeteer": "^2.1.1",
+    "serve": "^11.3.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "jest": {
+    "setupFilesAfeterEnv": [
+      "<./src/setupTests.js"
+    ]
+  }
 }

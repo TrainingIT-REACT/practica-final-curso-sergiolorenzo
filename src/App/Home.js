@@ -15,7 +15,6 @@ class Home extends React.Component {
   }
   
   renderSongs() {
-    console.log(this.props);
     const { isLoading, error, randomSongs } = this.props.songs;
     if (isLoading) {
       return <p>Cargando...</p>
@@ -24,9 +23,9 @@ class Home extends React.Component {
     } else {
 
       return <ul>
-        {randomSongs.filter(song => song.name.toUpperCase().includes(this.random())).map(song => <li key={song.id}>{song.name} 
-          {new Date(null, null, null, null, null, song.seconds).toTimeString().replace(/.*(\d{2}:)(\d{2}:\d{2}).*/, "$2") } 
-          <NavLink to={"/player/" + song.id}><FaPlayCircle /></NavLink></li>)}
+        {randomSongs.filter(song => song.name.toUpperCase().includes(this.random())).map(song => <li key={song.id}>{song.name} &nbsp;
+          {new Date(null, null, null, null, null, song.seconds).toTimeString().replace(/.*(\d{2}:)(\d{2}:\d{2}).*/, "$2") } &nbsp;
+          <NavLink to={"/player/" + song.id} aria-label={"click to play " + song.name}><FaPlayCircle /></NavLink></li>)}
        </ul>
      }
   }
@@ -44,8 +43,8 @@ class Home extends React.Component {
   renderBuscador() {
     return <>
       <form onSubmit={(e) => {alert("No implementado");; e.preventDefault();}}>
-        <label for="searchSong">Si lo prefieres puedes buscar tu canción preferida</label>
-        <input id="searchSong" type="text" placeholder="Título de la canción..." />
+        <label htmlFor="searchSong">Si lo prefieres puedes buscar tu canción preferida</label>&nbsp;
+        <input id="searchSong" type="text" placeholder="Título de la canción..." />&nbsp;
         <button>Buscar</button>
       </form>
     </>

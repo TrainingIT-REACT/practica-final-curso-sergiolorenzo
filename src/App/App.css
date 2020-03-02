@@ -42,3 +42,7 @@ nav ul li {
 .linkAudio {
     text-decoration:none;
 }
+
+a, a:visited, a:hover {
+  color: #075593;
+}

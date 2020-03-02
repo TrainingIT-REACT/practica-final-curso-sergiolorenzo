@@ -4,24 +4,73 @@ exports[`App renders correctly 1`] = `
 <div
   class="App"
 >
-  <header
-    class="App-header"
-  >
-    <p>
-      Edit 
-      <code>
-        src/App.js
-      </code>
-       and save to reload.
-    </p>
-    <a
-      class="App-link"
-      href="https://reactjs.org"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Learn React
-    </a>
+  <header>
+    <h1>
+      Reactify
+    </h1>
   </header>
+  <nav>
+    <ul>
+      <li>
+        <a
+          aria-current="page"
+          class="active"
+          href="/"
+        >
+          Inicio
+        </a>
+      </li>
+      <li>
+        <a
+          href="/login"
+        >
+          Login
+        </a>
+      </li>
+      <li>
+        <a
+          href="/albums"
+        >
+          Albums
+        </a>
+      </li>
+      <li>
+        <a
+          href="/history"
+        >
+          Historial de Reproducción
+        </a>
+      </li>
+      <li>
+        <a
+          hidden=""
+          href="/profile"
+        >
+          Perfil
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <p>
+      Esta es una selección de canciones sugeridas:
+    </p>
+    <ul />
+    <form>
+      <label
+        for="searchSong"
+      >
+        Si lo prefieres puedes buscar tu canción preferida
+      </label>
+      <input
+        id="searchSong"
+        placeholder="Título de la canción..."
+        type="text"
+      />
+      <button>
+        Buscar
+      </button>
+    </form>
+  </main>
 </div>
 `;

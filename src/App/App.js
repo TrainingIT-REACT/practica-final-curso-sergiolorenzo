@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 
 import PrivateRoute from './PrivateRoute';
 import ErrorBoundary from './ErrorBoundary';
@@ -68,28 +70,32 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <UserContext.Provider value={this.state}>
-          <div className="App">
-            <h1>Reactify</h1>
-            <Menu />
-            <React.Suspense fallback="La aplicación se está cargando">
-              <ErrorBoundary onReset={this.onReset} message="Ops! Algo ha salido mal">
-                <Switch>
-                  <Route path="/" exact component={Home} />
-                  <Route path="/login" component={Login} />
-                  <Route path="/albums" component={Albums} />
-                  <Route exact path="/album/:id([0-9]+)" component={Album} />
-                  <Route exact path="/player/:id([0-9]+)" component={Player} />
-                  <Route path="/History" component={History} />
-                  <PrivateRoute path="/profile" component={Profile} />  
-                  <Route component={NotFound} />
-                </Switch>
-              </ErrorBoundary>
-              </React.Suspense>
-          </div>
-        </UserContext.Provider>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <UserContext.Provider value={this.state}>
+            <div className="App">
+              <header><h1>Reactify</h1></header>
+              <Menu />
+              <main>
+                {/* <React.Suspense fallback="La aplicación se está cargando"> */}
+                  <ErrorBoundary onReset={this.onReset} message="Ops! Algo ha salido mal">
+                    <Switch>
+                      <Route path="/" exact component={Home} />
+                      <Route path="/login" component={Login} />
+                      <Route path="/albums" component={Albums} />
+                      <Route exact path="/album/:id([0-9]+)" component={Album} />
+                      <Route exact path="/player/:id([0-9]+)" component={Player} />
+                      <Route path="/History" component={History} />
+                      <PrivateRoute path="/profile" component={Profile} />  
+                      <Route component={NotFound} />
+                    </Switch>
+                  </ErrorBoundary>
+                {/* </React.Suspense> */}
+              </main>
+            </div>
+          </UserContext.Provider>
+        </Router>
+      </Provider>
     );
   }
 }

@@ -13,7 +13,9 @@ class History extends React.Component {
       if (alb.length > 0) {
         return <>
           <p>Estas son todas los albums que se han visitado</p>
-          {alb.map(album => <li key={album.id}>{album.name}</li>)}
+          <ul>
+            {alb.map(album => <li key={album.id}>{album.name}</li>)}
+          </ul>
         </>
        } else {
         return <p>Todavía no se ha visitado ningún álbum</p>
@@ -31,7 +33,9 @@ class History extends React.Component {
        if (songs.length > 0) {
         return <>
           <p>Estas son todas las canciones que has reproducido:</p>
-          <ul>{songs.map(song => <li key={song.id}>{song.name}</li>)}</ul>
+          <ul>
+            {songs.map(song => <li key={song.id}>{song.name}</li>)}
+          </ul>
         </>
        } else {
         return <p>Todavía no se ha reproducido ninguna canción</p>

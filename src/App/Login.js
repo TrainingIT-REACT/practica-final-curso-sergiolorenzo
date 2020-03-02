@@ -19,8 +19,8 @@ const Login = ({username, updateUsername, location}) => {
   return <UserContext.Consumer>
   {({ signedIn, updateUser }) => {
     return <form onSubmit={onSubmit(updateUser)}>
-      <label htmlFor="username">¿Cuál es tu usuario?</label>
-      <input id="username" type="text" ref={input} placeholder="Usuario..." />
+      <label htmlFor="username">¿Cuál es tu usuario?</label>&nbsp;
+      <input id="username" type="text" ref={input} placeholder="Usuario..." />&nbsp;
       <button>Login</button>
     </form>
   }}

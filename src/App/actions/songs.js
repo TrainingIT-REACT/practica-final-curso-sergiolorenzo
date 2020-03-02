@@ -11,7 +11,6 @@ export const getSong = createAsyncAction("SONG", async (id) => {
 });
 
 export const getRandomSongs = createAsyncAction("RANDOMSONGS", async () => {
-    console.log("aqui si");
     const res = await fetch('/songs');
     return await res.json();
 });
