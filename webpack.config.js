@@ -9,7 +9,7 @@ const config= {
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: '[name][chunkhash:8].js'
+        filename: '[name].[chunkhash:8].js'
     },
     module: {
         rules: [
