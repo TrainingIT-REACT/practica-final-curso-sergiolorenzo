@@ -1,15 +1,15 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const config= {
     entry: {
         main:'./src/index.js',
-        //sw: './src/sw.js',
         vendor: ['react', 'react-dom', 'react-router-dom']
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: '[name].[chunkhash:8].js'
+        filename: '[name][chunkhash:8].js'
     },
     module: {
         rules: [
@@ -30,16 +30,38 @@ const config= {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: "./public/index.html",
-            filename: "./index.html"
+        template: "./public/index.html",
+        filename: "./index.html"
+        }),
+        new WorkboxPlugin.InjectManifest({
+        swSrc: './src/sw.js',
         })
     ],
     devServer: {
         contentBase: './build',
         historyApiFallback: true,
         proxy: {
-            '/api': 'http://localhost:3001'
-        },
+            '/music': {
+              target: 'http://localhost:3001',
+              pathRewrite: {'^/music/': '/music/'},
+              xfwd: true
+            },
+            '/songs': {
+                target: 'http://localhost:3001',
+                pathRewrite: {'^/songs/': '/songs/'},
+                xfwd: true
+            },
+            '/albums': {
+                target: 'http://localhost:3001',
+                pathRewrite: {'^/albums/': '/albums/'},
+                xfwd: true
+            },
+            '/images': {
+                target: 'http://localhost:3001',
+                pathRewrite: {'^/images/': '/images/'},
+                xfwd: true
+            }
+          },
     },
     devtool: 'source-map',
     optimization: {

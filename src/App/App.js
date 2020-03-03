@@ -17,6 +17,8 @@ import Home from './Home';
 import Profile from './Profile';
 import Player from './Player';
 import NotFound from './NotFound';
+import Album from './Album';
+import History from './History';
 
 // Estado inicial
 const initialState = {
@@ -27,8 +29,6 @@ const initialState = {
 };
 
 const Albums = React.lazy(() => import('./Albums'));
-const Album = React.lazy(() => import('./Album'));
-const History = React.lazy(() => import('./History'));
 
 class App extends Component {
   constructor(props) {
@@ -77,7 +77,7 @@ class App extends Component {
               <header><h1>Reactify</h1></header>
               <Menu />
               <main>
-                {/* <React.Suspense fallback="La aplicación se está cargando"> */}
+                <React.Suspense fallback="La aplicación se está cargando">
                   <ErrorBoundary onReset={this.onReset} message="Ops! Algo ha salido mal">
                     <Switch>
                       <Route path="/" exact component={Home} />
@@ -90,7 +90,7 @@ class App extends Component {
                       <Route component={NotFound} />
                     </Switch>
                   </ErrorBoundary>
-                {/* </React.Suspense> */}
+                </React.Suspense>
               </main>
             </div>
           </UserContext.Provider>
