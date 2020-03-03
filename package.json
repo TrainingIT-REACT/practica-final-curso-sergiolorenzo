@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/polyfill": "^7.8.3",
+    "jest": "^25.1.0",
     "react": "^16.12.0",
     "react-audio-player": "^0.11.1",
     "react-dom": "^16.12.0",
@@ -46,7 +47,6 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "html-webpack-plugin": "^3.2.0",
-    "jest": "^25.1.0",
     "jest-enzyme": "^7.1.2",
     "jest-puppeteer": "^4.4.0",
     "json-server": "^0.14.2",
