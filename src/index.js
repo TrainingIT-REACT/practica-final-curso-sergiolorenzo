@@ -25,7 +25,7 @@ let refreshing = false;
 // Agregamos el evento on Click
 document.getElementById('reload').addEventListener('click', () => {
   // Mandamos el mensaje al worker
-  console.log("regarga");
+  console.log("recarga");
   worker.postMessage({ action: 'skipWaiting' });
 });
 

@@ -46,7 +46,7 @@ class Album extends React.Component {
 
        songs.map(song => totalSeconds += song.seconds);
        if(title !== null && title.current !== null)  {
-        console.log(title.current.innerHTML += " (" + new Date(null, null, null, null, null, totalSeconds).toTimeString().replace(/.*(\d{2}:)(\d{2}:\d{2}).*/, "$2") + ")");
+        title.current.innerHTML += " (" + new Date(null, null, null, null, null, totalSeconds).toTimeString().replace(/.*(\d{2}:)(\d{2}:\d{2}).*/, "$2") + ")";
        }
       return <ul>
         {songs.map(song => <li key={song.id}>{song.name}&nbsp;
