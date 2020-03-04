@@ -60,8 +60,8 @@
   },
   "proxy": "http://localhost:3001",
   "jest": {
-    "setupFilesAfeterEnv": [
-      "<./src/setupTests.js"
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
     ]
   }
 }
