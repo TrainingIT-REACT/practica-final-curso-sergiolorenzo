@@ -6,7 +6,7 @@ import Menu from '../Menu';
 import App from '../Menu';
 import { store } from '../store';
 
-describe(<Menu />, () => {
+describe("Menu", () => {
   it('renders correctly', () => {
     const wrapper = render(<Menu />);
     expect(wrapper).toMatchSnapshot();

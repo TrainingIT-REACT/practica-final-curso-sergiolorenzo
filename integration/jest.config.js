@@ -1,7 +1,7 @@
 module.exports = {
-  preset: 'jest-puppeteer',
+    preset: 'jest-puppeteer',
       testRegex: './*\\.(test|spec)\\.js$',
-      setupFiles: [
-          "<rootDir>/jest.init.js"
+      setupFilesAfterEnv: [
+          "<rootDir>jest.init.js"
       ],
-  }
+    } 
